@@ -322,6 +322,33 @@ struct IntersectionDetector2 {
         Vec2 circleToBox = circle.getCenter() - closestToCircle;
         return circleToBox.lengthSquared() <= circle.radius * circle.radius;
     }
+
+    static bool circleAndBox2(Circle circle, Box2 box) {
+        // Treat the box just like an aabb, after we rotate the stuff
+        Vec2 min{};
+        Vec2 max = box.halfSize * 2;
+
+        // Create circle in box's local space
+        Vec2 r = circle.getCenter() - box.rb->position;
+        rotate(r, -box.rb->rotation, Vec2{});
+        Vec2 localCirclePos = r + box.halfSize;
+
+        Vec2 closestToCircle = localCirclePos;
+        if(closestToCircle.x < min.x) {
+            closestToCircle.x = min.x;
+        } else if(closestToCircle.x > max.x) {
+            closestToCircle.x = max.x;
+        }
+
+        if(closestToCircle.y < min.y) {
+            closestToCircle.y = min.y;
+        } else if(closestToCircle.y > max.y) {
+            closestToCircle.y = max.y;
+        }
+
+        Vec2 circleToBox = localCirclePos - closestToCircle;
+        return circleToBox.lengthSquared() <= circle.radius * circle.radius;
+    }
 };
 
 // bool testLineCircle() {
