@@ -22,6 +22,14 @@ struct Box2 {
         return max;
     }
 
+    Vec2 getCenter() const {
+        return rb->position;
+    }
+
+    float getRotation() const {
+        return rb->rotation;
+    }
+
     //retourne les points de chaque coin de la Box
     Vec2* getVertices() {
         Vec2 min = getMin(), max = getMax();

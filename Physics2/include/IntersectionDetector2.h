@@ -349,6 +349,100 @@ struct IntersectionDetector2 {
         Vec2 circleToBox = localCirclePos - closestToCircle;
         return circleToBox.lengthSquared() <= circle.radius * circle.radius;
     }
+
+    /*********************
+     * AABB vs Primitive *
+     *********************/
+
+    static bool AABBAndCircle(AABB box, Circle circle) {
+        return circleAndAABB(circle, box);
+    }
+
+    static bool AABBAndAABB(AABB box1, AABB box2) {
+        Vec2 axesToTest[] = {Vec2{0, 1}, Vec2{1, 0}};
+        for(int i = 0 ; i < 2 ; i++) {
+            if(!overlapOnAxis(box1, box2, axesToTest[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    static bool AABBAndBox2(AABB b1, Box2 b2) {
+        Vec2 axesToTest[] = {
+            Vec2{0, 1}, Vec2{1, 0},
+            Vec2{0, 1}, Vec2{1, 0}
+        };
+
+        rotate(axesToTest[2], b2.getRotation(), Vec2{0, 0});
+        rotate(axesToTest[3], b2.getRotation(), Vec2{0, 0});
+
+        for(int i = 0 ; i < 2 ; i++) {
+            if(!overlapOnAxis(b1, b2, axesToTest[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    /********************
+     * Helper functions *
+     ********************/
+    
+    static bool overlapOnAxis(AABB b1, AABB b2, Vec2 axis) {
+        Vec2 inter1 = getInterval(b1, axis);
+        Vec2 inter2 = getInterval(b2, axis);
+        return (inter1.x <= inter2.y) && (inter2.x <= inter1.y);
+    }
+
+    static bool overlapOnAxis(AABB b1, Box2 b2, Vec2 axis) {
+        Vec2 inter1 = getInterval(b1, axis);
+        Vec2 inter2 = getInterval(b2, axis);
+        return (inter1.x <= inter2.y) && (inter2.x <= inter1.y);
+    }
+
+    static bool overlapOnAxis(Box2 b1, Box2 b2, Vec2 axis) {
+        Vec2 inter1 = getInterval(b1, axis);
+        Vec2 inter2 = getInterval(b2, axis);
+        return (inter1.x <= inter2.y) && (inter2.x <= inter1.y);
+    }
+
+    static Vec2 getInterval(AABB rect, Vec2 axis) {
+        Vec2 result{};
+
+        Vec2 min = rect.getMin();
+        Vec2 max = rect.getMax();
+
+        Vec2 vertices[] = {
+            Vec2{min.x, min.y}, Vec2{min.x, max.y},
+            Vec2{max.x, min.y}, Vec2{max.x, max.y}
+        };
+
+        result.x = axis.dot(vertices[0]);
+        result.y = result.x;
+        for(int i = 1 ; i < 4 ; i++) {
+            float projection = axis.dot(vertices[i]);
+            if(projection < result.x) result.x = projection;
+            if(projection > result.y) result.y = projection;
+        }
+    }
+
+    static Vec2 getInterval(Box2 rect, Vec2 axis) {
+        Vec2 result{};
+
+        // Vec2 min = rect.getMin();
+        // Vec2 max = rect.getMax();
+
+        Vec2* vertices = rect.getVertices();
+
+        result.x = axis.dot(vertices[0]);
+        result.y = result.x;
+        for(int i = 1 ; i < 4 ; i++) {
+            float projection = axis.dot(vertices[i]);
+            if(projection < result.x) result.x = projection;
+            if(projection > result.y) result.y = projection;
+        }
+    }
 };
 
 // bool testLineCircle() {
