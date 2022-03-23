@@ -7,12 +7,13 @@
 //Oriented Bounding Box
 struct Box2 {
     Box2() : size(Vec2{}), halfSize(Vec2{}) {}
-    //WARNING: min = top left, max = bottom right, dans le cours il utilise bottom left et top right
+    //FIXME: min = top left, max = bottom right, dans le cours il utilise bottom left et top right
     Box2(Vec2 min, Vec2 max) {
         size = max - min;
         halfSize = size * 0.5f;
     }
 
+    //TODO: Physics Engine #12 5:40
     Vec2 getMin() {
         Vec2 min = rb->position - halfSize;
         return min;
@@ -40,7 +41,6 @@ struct Box2 {
 
         if(rb->rotation != 0.0f) {
             for(Vec2 v : vertices) {
-                //TODO: implement me
                 //rotates point(vec2) about center(vec2) by rotation(float in degrees)
                 rotate(v, rb->rotation, rb->position);
             }
