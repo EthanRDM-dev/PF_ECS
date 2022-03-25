@@ -3,7 +3,10 @@ LDFLAGS = -Llib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
 INCFLAGS = -Iinclude -IECS/include -IEngine/include -IComponents/include -ISystems/include -IPhysics2/include
 #DEFFLAGS = -DECS_DEBUG_ #à ajouter après les CXXFLAGS
 
-# all: clean bin/BasicECS
+all: clean bin/BasicECS launch
+
+launch:
+	bin/BasicECS.exe
 
 bin/BasicECS: obj/main.o obj/Engine.o obj/AssetsLoader.o obj/Manager.o obj/icon.res
 	g++ $(CXXFLAGS) -o bin/BasicECS obj/main.o obj/Engine.o obj/AssetsLoader.o obj/Manager.o obj/icon.res $(INCFLAGS) $(LDFLAGS) 
@@ -23,8 +26,8 @@ obj/Manager.o: ECS/src/Manager.cpp
 obj/icon.res:
 	windres res/icon.rc -O coff -o obj/icon.res
 
-# clean:
-# 	del obj/main.o obj/Engine.o obj/Manager.o obj/AssetsLoader.o
+clean:
+	del obj\*.o bin\*.exe
 
 ########################################################################
 ####################### Makefile Template ##############################

@@ -2,17 +2,18 @@
 
 #include <cmath>
 
-//pas obligé mais raccourcis utiles
+
+//Shortcut for directions vector
 #define UP      (Vec2) {-1,0}
 #define DOWN    (Vec2) {1,0}
 #define LEFT    (Vec2) {0,-1}
 #define RIGHT   (Vec2) {0,1}
+//Shortcut for zeros and ones vector
 #define ZEROS   (Vec2) {0,0}
 #define ONES    (Vec2) {1,1}
 
 /**
  * @brief 2-dimensional vector
- * 
  */
 struct Vec2 {
     Vec2() : x{0.0f}, y{0.0f} {}

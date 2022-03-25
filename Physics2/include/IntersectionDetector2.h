@@ -1,3 +1,4 @@
+//TODO: réorganiser dépendances -> Ce fichier dans RigidBody
 #pragma once
 
 #include "AABB.h"
@@ -56,8 +57,8 @@ struct IntersectionDetector2 {
         Vec2 pointRotated = point;
         rotate(pointRotated, box.rb->rotation, box.rb->position);
 
-        Vec2 min = box.getMin();
-        Vec2 max = box.getMax();
+        Vec2 min = box.getLocalMin();
+        Vec2 max = box.getLocalMax();
 
         bool testX = point.x <= max.x && min.x <= point.x;
         bool testY = point.y <= max.y && min.y <= point.y;
@@ -122,7 +123,7 @@ struct IntersectionDetector2 {
     }
 
     static bool lineAndBox2(const Line2& line, Box2 box) {
-        float th = -box.rb->rotation; //box.rb->rotation;
+        float th = -box.rb->rotation; //FIXME: sans le moins ? -> box.rb->rotation;
         Vec2 center = box.rb->position;
         Vec2 localStart = line.start;
         Vec2 localEnd = line.end;
@@ -131,7 +132,7 @@ struct IntersectionDetector2 {
         rotate(localEnd, th, center);
 
         Line2 localLine{localStart, localEnd};
-        AABB aabb{box.getMin(), box.getMax()};
+        AABB aabb{box.getLocalMin(), box.getLocalMax()};
         return lineAndAABB(localLine, aabb);
     }
 
@@ -444,12 +445,3 @@ struct IntersectionDetector2 {
         }
     }
 };
-
-// bool testLineCircle() {
-//     Line2 l(Vec2{0.0f, 0.0f}, Vec2{100.0f, 100.0f});
-//     RigidBody2 r(Vec2{50.0f, 20.0f}, 0.0f);
-//     Circle c(29.0f); //wtf ça renvoie vrai ?????????? fais les calculs si tu peux, apparemment pt plus proche == 35, 35 ; nan c'est good
-//     c.rb = &r;
-
-//     return IntersectionDetector2::lineAndCircle(l,c);
-// }

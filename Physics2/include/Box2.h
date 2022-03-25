@@ -1,9 +1,12 @@
+//TODO: réorganiser dépendances -> Ce fichier dans Primitives
 #pragma once
 
 // #include "ECS.h"
 #include "Vec2.h"
 #include "RigidBody2.h"
+#include "Maths.h"
 
+//TODO: IComponent ? If yes -> query RigidBody2 from id
 //Oriented Bounding Box
 struct Box2 {
     Box2() : size(Vec2{}), halfSize(Vec2{}) {}
@@ -13,27 +16,9 @@ struct Box2 {
         halfSize = size * 0.5f;
     }
 
-    //TODO: Physics Engine #12 5:40
-    Vec2 getMin() {
-        Vec2 min = rb->position - halfSize;
-        return min;
-    }
-    Vec2 getMax() {
-        Vec2 max = rb->position + halfSize;
-        return max;
-    }
-
-    Vec2 getCenter() const {
-        return rb->position;
-    }
-
-    float getRotation() const {
-        return rb->rotation;
-    }
-
     //retourne les points de chaque coin de la Box
     Vec2* getVertices() {
-        Vec2 min = getMin(), max = getMax();
+        Vec2 min = getLocalMin(), max = getLocalMax();
         Vec2 vertices[] = {
             Vec2{min.x, min.y}, Vec2{min.x, max.y},
             Vec2{max.x, min.y}, Vec2{max.x, max.y}
@@ -47,6 +32,29 @@ struct Box2 {
         }
 
         return vertices;
+    }
+
+    //TODO: Physics Engine #12 5:40
+    Vec2 getLocalMin() {
+        Vec2 min = rb->position - halfSize;
+        return min;
+    }
+    Vec2 getLocalMax() {
+        Vec2 max = rb->position + halfSize;
+        return max;
+    }
+
+    Vec2 getCenter() const {
+        return rb->position;
+    }
+
+    float getRotation() const {
+        return rb->rotation;
+    }
+
+    void setSize(Vec2 s) {
+        size = s;
+        halfSize = s * 0.5f;
     }
 
     Vec2 size;

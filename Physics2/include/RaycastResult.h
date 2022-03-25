@@ -1,3 +1,4 @@
+//TODO: réorganiser dépendances -> Ce fichier dans Primitives
 #pragma once
 
 #include "Ray2.h"
