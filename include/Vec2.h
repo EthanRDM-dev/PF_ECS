@@ -1,12 +1,21 @@
+/**
+ * @file Vec2.h
+ * @author Ethan MARLOT (ethan.marlot@hotmail.com)
+ * @brief 2-dimensional vector, and its operators overload
+ * @version 1.0
+ * @date 2022-04-06
+ * 
+ */
 #pragma once
 
 #include <cmath>
 
-//pas obligé mais raccourcis utiles
-#define UP      (Vec2) {-1,0}
-#define DOWN    (Vec2) {1,0}
-#define LEFT    (Vec2) {0,-1}
-#define RIGHT   (Vec2) {0,1}
+//Shortcut for directions vector
+#define LEFT    (Vec2) {-1,0}
+#define RIGHT   (Vec2) {1,0}
+#define UP      (Vec2) {0,-1}
+#define DOWN    (Vec2) {0,1}
+//Shortcut for zeros and ones vector
 #define ZEROS   (Vec2) {0,0}
 #define ONES    (Vec2) {1,1}
 

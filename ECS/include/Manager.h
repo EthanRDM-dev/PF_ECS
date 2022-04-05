@@ -1,8 +1,10 @@
 #pragma once
 
 #include "ECS.h"
-#include "ComponentManager.h"
+#include "GameMap.h"
+#include "MapParser.h"
 #include "SystemManager.h"
+#include "ComponentManager.h"
 
 class Manager {
     public:
@@ -83,7 +85,12 @@ class Manager {
             systems->registerSystem<T>();            
         }
 
-        void update(); /*{
+        template<typename T>
+        std::shared_ptr<T> getSystem() {
+            return systems->getSystem<T>();
+        }
+
+        void update(float dt); /*{
             std::cout << "9\n";
             systems.update();
         }*/

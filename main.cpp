@@ -2,107 +2,117 @@
  * @file main.cpp
  * @author Ethan MARLOT (ethan.marlot@hotmail.com)
  * @brief 
- * @version 0.1
- * @date 2022-01-09
+ * @version 1.0
+ * @date 2022-04-06
  * 
  */
-#include <iostream>
-// #include "Debug.h"
-// #include "UnitTests.h" 
 
+//Include des bibliotheques C++/Externe (SDL2, TinyXML...)
+#include <iostream>
+
+//Include d'utils
+#include "Clock.h"
+
+//Include du moteur de jeu
 #include "ECS.h"
 #include "Engine.h"
 #include "Manager.h"
-#include "Transform.h"
+#include "SystemManager.h"
 #include "ComponentArray.h"
 #include "ComponentManager.h"
-#include "SystemManager.h"
+
+//Include de la gestion de maps
+#include "GameMap.h"
+#include "MapParser.h"
+#include "TileManager.h"
+
+//Include des components
+#include "Inputs.h"
+#include "Camera.h"
+#include "Transform.h"
+#include "RigidBody.h"
+#include "Collider2.h"
+#include "Animation.h"
+
+//Include des systems
+#include "InputSystem.h"
 #include "PhysicSystem.h"
-#include "IntersectionDetector2.h"
-
-// struct TestComp : public IComponent<TestComp> {
-//     TestComp() : x(0), y(0) {}
-//     TestComp(Entity e, int _x, int _y) : IComponent(e), x(_x), y(_y) {}
-//     int x;
-//     int y;
-
-//     void say() {std::cout << x << y << std::endl;}
-// };
-
-// bool isIn(char** v, int c, char* test) {
-//     bool in = false;
-//     for(int i = 0 ; i < c ; i++) {
-//         if(v[i] == test) {
-//             in = true;
-//             break;
-//         }
-//     }
-//     return in;
-// } 
+#include "RenderSystem.h"
+#include "CameraSystem.h"
+#include "AnimationSystem.h"
+#include "CollisionSystem.h"
 
 int main(int argc, char** argv) {
-    #ifdef ECS_DEBUG_
-    //faire des tests
-    return 0; //?
-    #endif
-
-    // //unit tests
-    // if(DEBUG_MODE == 2) {
-    //     if(UnitTest::Tests()) {
-    //         return 0;
-    //     } else {
-    //         return 1;
-    //     }
-    // }
-    // Vec2 a{3.56066f, 3.14645f};
-    // Box2 b{Vec2(1.0f,3.0f), Vec2(4.0f,4.0f)};
-    // RigidBody2 r{Vec2{2.5f, 3.5f}, 45.0f};
-    // b.rb = &r;
-    // if(IntersectionDetector2::pointInBox2(a, b)) {std::cout << "yes" << std::endl;}
-    // return 0;
-
+    Clock& clock = Clock::get();
     Engine& engine = Engine::get();
-    // std::cout << "1\n";
     Manager& manager = Manager::get();
-    // std::cout << "2\n";
 
-    manager.registerSystem<PhysicSystem>();
-    manager.registerComponentArray<Transform>();
+    if(!MapParser::get().load()) {
+        SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, "Error while loading map", "Cannot load map", nullptr);
 
-    // ComponentManager cm;
-    // cm.registerComponentArray<TestComp>();
-    // cm.registerComponentArray<TestComp>();
-    // TestComp c{1,0,1};
-    // cm.addComponent<TestComp>(1,c);
-
-    // cm.getComponent<TestComp>(1).say();
-
-    // TestComp a,b;
-    // TestComp c{2,1,2},d;
-    // TestComp e{2,0,0};
-    // bool test1 = (a == b);
-    // bool test2 = (c == d);
-    // bool test3 = (c == e);
-    // std::cout << test1 << std::endl;
-    // std::cout << test2 << std::endl;
-    // std::cout << test3 << std::endl;
-
-    while(engine.isRunning()) {
-        // std::cout << "3\n";
-        engine.events();
-        // std::cout << "4\n";
-        manager.update();
-        // std::cout << "5\n";
-        engine.render();
-        // std::cout << "6\n";
+        // clean des assets et autres déjà chargés
+        engine.cleanEngine();
+        TileManager::get().clean();
+        exit(1);
     }
 
-    engine.cleanEngine();
-    // std::cout << "7\n";
+    GameMap* map = MapParser::get().mapDict["lvl1"];
+    
+    InputSystem inputSys;
+    RenderSystem renderSys;
 
-    // if(testLineCircle()) {
-    //     std::cout << "nickel chrome" << std::endl;
-    // }
+    manager.registerSystem<PhysicSystem>();
+    manager.registerSystem<CollisionSystem>();
+    manager.registerSystem<AnimationSystem>();
+    manager.registerSystem<CameraSystem>();
+
+    manager.registerComponentArray<Inputs>();
+    manager.registerComponentArray<Sprite>();
+    manager.registerComponentArray<Collider2>();
+    manager.registerComponentArray<Animation>();
+    manager.registerComponentArray<Transform>();
+    manager.registerComponentArray<RigidBody>();
+
+    Entity player = Manager::get().createEntity();
+
+    Inputs inp{player};
+    Manager::get().addComponent<Inputs>(player, inp);
+    
+    Animation an{player, 2, 8, 80};
+    Manager::get().addComponent<Animation>(player, an);
+    
+    Sprite sp{player, "res/assets/testPerso.png", 0, 0};
+    Manager::get().addComponent<Sprite>(player, sp);
+    
+    Transform tf{player, Vec2{100.0f, 100.0f}, Vec2{1.0f, 1.0f}, 0.0f};
+    Manager::get().addComponent<Transform>(player, tf);
+    
+    RigidBody rb{player, BodyType::DYNAMIC, 1.0f, 1.0f, Vec2{}, Vec2{}, Vec2{}, Vec2{}};
+    Manager::get().addComponent<RigidBody>(player, rb);
+
+    Collider2 col{player, SDL_Rect{tf.position.x, tf.position.y, 32, 32}};
+    Manager::get().addComponent<Collider2>(player, col);
+
+    Camera::get().target = player;
+
+    while(engine.isRunning()) {
+        //events handling
+        inputSys.update(clock.delta);
+
+        //update map and entities
+        map->update();
+        manager.update(clock.delta);
+
+        //render
+        renderSys.update(clock.delta);
+        
+        //update delta time
+        clock.tick();
+    }
+
+    //clean assets et engine
+    engine.cleanEngine();
+    TileManager::get().clean();
 
     return 0;
 }

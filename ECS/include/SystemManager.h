@@ -1,3 +1,11 @@
+/**
+ * @file SystemManager.h
+ * @author Ethan MARLOT (ethan.marlot@hotmail.com)
+ * @brief Array of systems, 
+ * @version 1.0
+ * @date 2022-04-06
+ * 
+ */
 #pragma once
 
 #include "ECS.h"
@@ -24,10 +32,9 @@ class SystemManager {
             registeredSystem++;
         }
 
-        void update() {
+        void update(float dt) {
             for(int i = 0 ; i < registeredSystem ; i++) {
-                std::cout << "up\n";
-                systemsArray[i]->update();
+                systemsArray[i]->update(dt);
             }
         }
 
@@ -42,9 +49,6 @@ class SystemManager {
         }
 
     private:
-        //FIXME: ou alors dans system direct ? Ou les 2 ?
-        // ComponentManager* compManager;
-        // au final dans Manager général
         SystemList systemsArray;
         SystemID registeredSystem{0};
 };

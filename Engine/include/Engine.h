@@ -1,16 +1,23 @@
+/**
+ * @file Engine.h
+ * @author Ethan MARLOT (ethan.marlot@hotmail.com)
+ * @brief Game engine core, containing the window and renderer, and a reference to the Manager
+ * @version 1.0
+ * @date 2022-04-06
+ * 
+ */
 #pragma once
 
 #include <iostream>
 #include <type_traits>
 #include <SDL2/SDL.h>
 
-#include "AssetsLoader.h"
 #include "Manager.h"
+#include "AssetsLoader.h"
 
 constexpr int SCREEN_WIDTH = 1280;
 constexpr int SCREEN_HEIGHT = 720;
 
-//FIXME: Manager auto-instanciable et référence dans Engine <== on se focus dessus pour l'instant
 class Engine {
     public:
         static Engine& get() {
@@ -18,25 +25,18 @@ class Engine {
             return e;
         }
 
-        //RenderSystem ?
-        void render();
-
-        void events();
-        void evtHandler(SDL_Keycode k);
-
-        //CleanSystem ?
         void cleanEngine();
 
+        void stop() {running = false;}
         bool isRunning() {return running;}
         SDL_Renderer* getRenderer() {return renderer;}
+        SDL_Color getClearColor() {return CLEAR_COLOR;}
+
     private:
         Engine();
         bool running;
-        SDL_Event event;
-        //FIXME: à voir si ref à Manager ici
         Manager& manager;
         SDL_Window* window;
         SDL_Renderer* renderer;
-        //SDL_Rect rect; //utilisé pour test fenêtre
         SDL_Color CLEAR_COLOR = {50,110,200,255};
 };

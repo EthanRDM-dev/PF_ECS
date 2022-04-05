@@ -1,3 +1,11 @@
+/**
+ * @file ComponentManager.h
+ * @author Ethan MARLOT (ethan.marlot@hotmail.com)
+ * @brief Components manager, containing a list of different ComponentArrays
+ * @version 1.0
+ * @date 2022-04-06
+ * 
+ */
 #pragma once
 
 #include "ECS.h"
@@ -50,9 +58,5 @@ class ComponentManager {
         }
 
     private:
-        //EntityManager* entities;
-        //ou SignatureArray signArray ? Comme ça quand on addComp<T>(e,comp) -> signArray[e][getCompTypeID<T>] = true;
-        //pointeur sur signArray ? Et signArray dans un EntityManager ?
-        //ou alors dans un Manager global ? -> Dans Engine du coup ?
         ComponentsList componentArrays;
 };

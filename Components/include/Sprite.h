@@ -1,11 +1,23 @@
+/**
+ * @file Sprite.h
+ * @author Ethan MARLOT (ethan.marlot@hotmail.com)
+ * @brief Sprite component, containing the texture and other useful attributes
+ * @version 1.0
+ * @date 2022-04-06
+ * 
+ */
 #pragma once
 
 #include "ECS.h"
+#include "Vec2.h"
+#include "Manager.h"
+#include "Animation.h"
 #include "AssetsLoader.h"
 
 struct Sprite : IComponent<Sprite> {
-    Sprite() {}
-    Sprite(Entity e, SDL_Texture* tex, int _x = 0, int _y = 0) : IComponent<Sprite>(e), texture(tex) {
+    Sprite() : IComponent<Sprite>() {}
+    Sprite(Entity e, SDL_Texture* tex, int _x = 0, int _y = 0)
+            : IComponent<Sprite>(e), texture(tex) {
         assert(tex != nullptr &&
          "Trying to initialize a sprite with a nullptr texture");
         
@@ -15,7 +27,8 @@ struct Sprite : IComponent<Sprite> {
         src.w = width;
         src.h = height;
     }
-    Sprite(Entity e, std::string const& path, int _x = 0, int _y = 0) : IComponent<Sprite>(e) {
+    Sprite(Entity e, std::string const& path, int _x = 0, int _y = 0)
+            : IComponent<Sprite>(e) {
         texture = AssetsLoader::get().loadTexture(path);
         
         assert(texture != nullptr &&
@@ -24,6 +37,12 @@ struct Sprite : IComponent<Sprite> {
         SDL_QueryTexture(texture, nullptr, nullptr, &width, &height);
         src.x = _x;
         src.y = _y;
+
+        if(Manager::get().getSignatureArray()[e][getComponentTypeID<Animation>()]) {
+            width /= Manager::get().getComponent<Animation>(e).col;
+            height /= Manager::get().getComponent<Animation>(e).row;
+        }
+        
         src.w = width;
         src.h = height;
     }
@@ -31,6 +50,8 @@ struct Sprite : IComponent<Sprite> {
         SDL_DestroyTexture(texture);
     }
 
+    Vec2 origin;
+    
     int width;
     int height;
     SDL_Rect src;

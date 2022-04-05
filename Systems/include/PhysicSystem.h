@@ -9,10 +9,8 @@ struct PhysicSystem : public ISystem {
     PhysicSystem() {
         systemSignature[getComponentTypeID<Transform>()] = true;
         systemSignature[getComponentTypeID<RigidBody>()] = true;
-        //FIXME: autre ?
     }
 
-    //TODO: même principe  pour chaque System
     bool isUpdatable(Signature entitySignature) override {
         bool updatable = true;
         for(int i = 0 ; i < systemSignature.size() ; i++) {
@@ -23,18 +21,19 @@ struct PhysicSystem : public ISystem {
         return updatable;
     }
 
-    void update() override {
+    void update(float dt) override {
         SignatureArray& signArr = Manager::get().getSignatureArray();
         for(Entity i = 0 ; i < MAX_ENTITIES ; i++) {
             if(isUpdatable(signArr[i])) {
                 Transform& t = Manager::get().getComponent<Transform>(i);
                 RigidBody& r = Manager::get().getComponent<RigidBody>(i);
+                
+                if(r.type == BodyType::DYNAMIC) {
+                    r.acceleration.x = (r.force.x - r.drag.x) / r.mass;
+                    r.acceleration.y = (GRAVITY.y * r.gravScale) + (r.force.y / r.mass);
 
-                r.velocity.x = r.force.x - r.drag.x;
-                r.velocity.y = r.force.y + r.drag.y + r.gravScale * GRAVITY * r.mass;
-
-                t.position.x += r.velocity.x;
-                t.position.y += r.velocity.y;
+                    r.velocity = r.acceleration * dt;
+                }
             }
         }
     }

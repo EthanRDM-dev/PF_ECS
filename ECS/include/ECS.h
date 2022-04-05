@@ -1,19 +1,19 @@
 /**
  * @file ECS.h
  * @author Ethan MARLOT (ethan.marlot@hotmail.com)
- * @brief Types, Interfaces and Constants defs
- * @version 0.1
- * @date 2022-01-09
+ * @brief Types and Interfaces definition, base of the Entity Component System
+ * @version 1.0
+ * @date 2022-04-06
  * 
  */
 #pragma once
 
-#include <iostream>
-#include <bitset>
 #include <array>
 #include <queue>
+#include <bitset>
 #include <memory>
 #include <cassert>
+#include <iostream>
 #include <unordered_map>
 
 #include <SDL2/SDL.h>
@@ -21,6 +21,7 @@
 #include <SDL2/SDL_image.h>
 
 //types and constexpr defs
+
 using Entity = std::uint32_t;
 constexpr Entity MAX_ENTITIES = 2000;
 
@@ -48,7 +49,7 @@ struct IComponent {
 
     Entity e;
 
-    bool operator==(IComponent<T> const& c) {
+    bool operator==(const IComponent<T>& c) {
         return e == c.e;
     }
 };

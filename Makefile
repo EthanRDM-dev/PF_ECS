@@ -1,13 +1,18 @@
 CXXFLAGS = -std=c++17 -Wall -Wextra -Wno-sign-compare
-LDFLAGS = -Llib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf
-INCFLAGS = -Iinclude -IECS/include -IEngine/include -IComponents/include -ISystems/include -IPhysics2/include
-#DEFFLAGS = -DECS_DEBUG_ #à ajouter après les CXXFLAGS
+LDFLAGS = -Llib -lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf #-lSDL2_mixer
+INCFLAGS = -Iinclude -Iinclude/TinyXML -Iinclude/SDL2 -IECS/include -IEngine/include -IComponents/include -ISystems/include -ICollisions/include -IMap/include
 
-# all: clean bin/BasicECS
+all: clean bin/Game launch
 
-bin/BasicECS: obj/main.o obj/Engine.o obj/AssetsLoader.o obj/Manager.o obj/icon.res
-	g++ $(CXXFLAGS) -o bin/BasicECS obj/main.o obj/Engine.o obj/AssetsLoader.o obj/Manager.o obj/icon.res $(INCFLAGS) $(LDFLAGS) 
++#execution du jeu (facultatif)
+launch:
+	bin/Game.exe
 
+#executable
+bin/Game: obj/main.o obj/Engine.o obj/AssetsLoader.o obj/Manager.o obj/tinystr.o obj/tinyxml.o obj/tinyxmlerror.o obj/tinyxmlparser.o obj/icon.res
+	g++ $(CXXFLAGS) -o bin/Game obj/main.o obj/Engine.o obj/AssetsLoader.o obj/Manager.o obj/tinystr.o obj/tinyxml.o obj/tinyxmlerror.o obj/tinyxmlparser.o obj/icon.res $(INCFLAGS) $(LDFLAGS) 
+
+#objets du jeu
 obj/main.o: main.cpp 
 	g++ $(CXXFLAGS) -o obj/main.o -c main.cpp $(INCFLAGS) $(LDFLAGS)
 
@@ -20,71 +25,23 @@ obj/AssetsLoader.o: Engine/src/AssetsLoader.cpp
 obj/Manager.o: ECS/src/Manager.cpp
 	g++ $(CXXFLAGS) -o obj/Manager.o -c ECS/src/Manager.cpp $(INCFLAGS) $(LDFLAGS)
 
+#objets de TinyXML
+obj/tinystr.o: include/TinyXML/tinystr.cpp
+	g++ $(CXXFLAGS) -o obj/tinystr.o -c include/TinyXML/tinystr.cpp $(INCFLAGS) $(LDFLAGS)
+
+obj/tinyxml.o: include/TinyXML/tinyxml.cpp
+	g++ $(CXXFLAGS) -o obj/tinyxml.o -c include/TinyXML/tinyxml.cpp $(INCFLAGS) $(LDFLAGS)
+
+obj/tinyxmlerror.o: include/TinyXML/tinyxmlerror.cpp
+	g++ $(CXXFLAGS) -o obj/tinyxmlerror.o -c include/TinyXML/tinyxmlerror.cpp $(INCFLAGS) $(LDFLAGS)
+
+obj/tinyxmlparser.o: include/TinyXML/tinyxmlparser.cpp
+	g++ $(CXXFLAGS) -o obj/tinyxmlparser.o -c include/TinyXML/tinyxmlparser.cpp $(INCFLAGS) $(LDFLAGS)
+
+#icone de l'executable
 obj/icon.res:
 	windres res/icon.rc -O coff -o obj/icon.res
 
-# clean:
-# 	del obj/main.o obj/Engine.o obj/Manager.o obj/AssetsLoader.o
-
-########################################################################
-####################### Makefile Template ##############################
-########################################################################
-
-# ODIR := obj
-# OBJ = $(wildcard $(ODIR)/*.o)
-
-# Compiler settings - Can be customized.
-# CC = g++
-# CXXFLAGS = -std=c++17 -Wall -Wextra
-# LDFLAGS = -Llib -lmingw32 -lSDL2main -lSDL2
-# INCLUDES = -Iinclude
-
-# Makefile settings - Can be customized.
-# APPNAME = ProjetL3
-# EXT = .cpp
-# SRCDIR = ./
-# OBJDIR = obj
-
-############## Do not change anything from here downwards! #############
-# SRC = $(wildcard $(SRCDIR)/*$(EXT))
-# OBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)/%.o)
-# DEP = $(OBJ:$(OBJDIR)/%.o=%.d)
-# UNIX-based OS variables & settings
-# RM = rm
-# DELOBJ = $(OBJ)
-# Windows OS variables & settings
-# DEL = del
-# EXE = .exe
-# WDELOBJ = $(SRC:$(SRCDIR)/%$(EXT)=$(OBJDIR)\\%.o)
-
-########################################################################
-####################### Targets beginning here #########################
-########################################################################
-
-# all: $(APPNAME)
-
-# Builds the app
-# $(APPNAME): $(OBJ)
-# 	$(CC) $(CXXFLAGS) -o $@ $^ $(LDFLAGS)
-
-# Creates the dependecy rules
-# %.d: $(SRCDIR)/%$(EXT)
-# 	@$(CPP) $(CFLAGS) $< -MM -MT $(@:%.d=$(OBJDIR)/%.o) >$@
-
-# Includes all .h files
-# -include $(DEP)
-
-# Building rule for .o files and its .c/.cpp in combination with all .h
-# $(OBJDIR)/%.o: $(SRCDIR)/%$(EXT)
-# 	$(CC) $(CXXFLAGS) -o $@ -c $<
-
-#################### Cleaning rules for Windows OS #####################
-# Cleans complete project
-# .PHONY: cleanw
-# cleanw:
-# 	$(DEL) $(WDELOBJ) $(DEP) $(APPNAME)$(EXE)
-
-# Cleans only all files with the extension .d
-# .PHONY: cleandepw
-# cleandepw:
-# 	$(DEL) $(DEP)
+#nettoyage
+clean:
+	del obj\*.o bin\*.exe

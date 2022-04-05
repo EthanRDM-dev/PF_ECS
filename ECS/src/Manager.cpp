@@ -1,7 +1,6 @@
 #include "Manager.h"
 
 Manager::Manager() : components(std::make_unique<ComponentManager>()), systems(std::make_unique<SystemManager>()) {
-    // std::cout << "8\n";
     for(Entity e = 0 ; e < MAX_ENTITIES ; e++) {
         entities.push(e);
     }
@@ -73,7 +72,9 @@ SignatureArray& Manager::getSignatureArray() {
 //     systems->registerSystem<T>();            
 // }
 
-void Manager::update() {
-    // std::cout << "9\n";
-    systems->update();
+void Manager::update(float dt) {
+    // GameMap* map = MapParser::get().mapDict["lvl1"];
+    // map->update();
+
+    systems->update(dt);
 }

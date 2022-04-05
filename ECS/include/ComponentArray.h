@@ -1,3 +1,11 @@
+/**
+ * @file ComponentArray.h
+ * @author Ethan MARLOT (ethan.marlot@hotmail.com)
+ * @brief Array of a specific component
+ * @version 1.0
+ * @date 2022-04-06
+ * 
+ */
 #pragma once
 
 #include "ECS.h"
@@ -5,11 +13,6 @@
 template<typename T>
 class ComponentArray : public IComponentArray {
     public:
-        //TODO: créer un neutre pour chaque composants, pour pouvoir assert lors d'une query de comp
-        //TODO: du coup dans componentbyid : si(compArray[e] != neutre) alors return compArray[e]
-        //TODO: ou alors dans system le check du query ? si(componentbyid(e) != neutre) alors update ? <===
-        //TODO: neutre => Entity e du component = -1
-
         ComponentArray() {}
 
         T& addComponent(Entity e, T& comp) {
@@ -50,14 +53,6 @@ class ComponentArray : public IComponentArray {
         void entityDestroyed(Entity e) override {
             compArray[e] = T{};
         }
-
-        // T& operator[](Entity e) {
-        //     assert(e < MAX_ENTITIES &&
-        //      "Out of range.");
-
-        //     return compArray[e];
-        // }
     private:
-        //FIXME: [[maybe]] shared_ptr<T> ?
         std::array<T, MAX_ENTITIES> compArray;
 };
