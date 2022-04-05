@@ -69,8 +69,7 @@ class IComponentArray {
  * 
  */
 struct ISystem {
-    // virtual ~ISystem() = default;
-    virtual void update() = 0;
+    virtual void update(float dt) = 0;
     virtual bool isUpdatable(Signature entitySignature) = 0;
     Signature systemSignature;
 };

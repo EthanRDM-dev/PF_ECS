@@ -1,7 +1,7 @@
 /**
  * @file InputSystem.h
  * @author Ethan MARLOT (ethan.marlot@hotmail.com)
- * @brief 
+ * @brief Handle events and resolve them
  * @version 1.0
  * @date 2022-04-06
  * 

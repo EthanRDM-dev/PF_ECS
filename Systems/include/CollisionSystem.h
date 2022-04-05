@@ -1,7 +1,7 @@
 /**
  * @file CollisionSystem.h
  * @author Ethan MARLOT (ethan.marlot@hotmail.com)
- * @brief 
+ * @brief Resolve collisions
  * @version 1.0
  * @date 2022-04-06
  * 
@@ -22,7 +22,6 @@ struct CollisionSystem : public ISystem {
         systemSignature[getComponentTypeID<RigidBody>()] = true;
     }
 
-    //TODO: même principe  pour chaque System
     bool isUpdatable(Signature entitySignature) override {
         bool updatable = true;
         for(int i = 0 ; i < systemSignature.size() ; i++) {

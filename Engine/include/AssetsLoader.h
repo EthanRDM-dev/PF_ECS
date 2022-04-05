@@ -1,3 +1,11 @@
+/**
+ * @file AssetsLoader.h
+ * @author Ethan MARLOT (ethan.marlot@hotmail.com)
+ * @brief Texture, and TrueTypeFont loader
+ * @version 1.0
+ * @date 2022-04-06
+ * 
+ */
 #pragma once
 
 #include <string>

@@ -22,7 +22,7 @@ struct MapParser {
     }
 
     bool load() {
-        if(!parse("lvl1", "res/assets/map/test2.tmx")) return false;
+        if(!parse("lvl1", "res/assets/map/map.tmx")) return false;
         return true;
     }
 

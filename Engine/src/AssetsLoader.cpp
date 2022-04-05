@@ -1,3 +1,11 @@
+/**
+ * @file AssetsLoader.cpp
+ * @author Ethan MARLOT (ethan.marlot@hotmail.com)
+ * @brief AssetsLoader's implementation
+ * @version 1.0
+ * @date 2022-04-06
+ * 
+ */
 #include "AssetsLoader.h"
 
 #include "Engine.h"

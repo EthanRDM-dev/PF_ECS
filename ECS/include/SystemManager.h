@@ -1,7 +1,7 @@
 /**
  * @file SystemManager.h
  * @author Ethan MARLOT (ethan.marlot@hotmail.com)
- * @brief Array of systems, 
+ * @brief Array of systems, global update of all systems
  * @version 1.0
  * @date 2022-04-06
  * 

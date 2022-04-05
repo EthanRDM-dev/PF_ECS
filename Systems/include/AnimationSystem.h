@@ -1,7 +1,7 @@
 /**
  * @file AnimationSystem.h
  * @author Ethan MARLOT (ethan.marlot@hotmail.com)
- * @brief 
+ * @brief Update the actual frame of the animated sprite
  * @version 1.0
  * @date 2022-04-06
  * 

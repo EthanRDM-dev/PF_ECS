@@ -1,3 +1,11 @@
+/**
+ * @file RenderSystem.h
+ * @author Ethan MARLOT (ethan.marlot@hotmail.com)
+ * @brief Render the map and every sprites
+ * @version 1.0
+ * @date 2022-04-06
+ * 
+ */
 #pragma once
 
 #include <SDL.h>

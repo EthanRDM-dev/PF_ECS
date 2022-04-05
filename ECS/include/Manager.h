@@ -1,3 +1,12 @@
+/**
+ * @file Manager.h
+ * @author Ethan MARLOT (ethan.marlot@hotmail.com)
+ * @brief Global ECS manager, contains a ComponentManager, a SystemManager, an update method that
+ *      parse and update every registered systems, methods to create Entities and attach components to them
+ * @version 1.0
+ * @date 2022-04-06
+ * 
+ */
 #pragma once
 
 #include "ECS.h"
@@ -13,50 +22,15 @@ class Manager {
             return m;
         }
 
-        Entity createEntity(); /*{
-            assert(entitiesAlive < MAX_ENTITIES &&
-             "Too many entities.");
+        Entity createEntity();
 
-            Entity id = entities.front();
-            entities.pop();
+        void destroyEntity(Entity e);
 
-            entitiesAlive++;
-            return id;
-        }*/
+        void setSignature(Entity e, Signature s);
 
-        void destroyEntity(Entity e); /*{
-            assert(e < MAX_ENTITIES &&
-             "Out of range.");
+        Signature& getSignature(Entity e);
 
-            entitySignatures[e].reset();
-
-            entities.push(e);
-            entitiesAlive--;
-        }*/
-
-        void setSignature(Entity e, Signature s); /*{
-            assert(e < MAX_ENTITIES &&
-             "Entity out of range.");
-
-            entitySignatures[e] = s;
-        }*/
-
-        Signature& getSignature(Entity e); /*{
-            assert(e < MAX_ENTITIES &&
-             "Entity out of range.");
-
-            return entitySignatures[e];
-        }*/
-
-        SignatureArray& getSignatureArray(); /*{
-            return entitySignatures;
-        }*/
-
-        // std::queue<Entity> getEntities() {
-        //     return entities;
-        // }
-
-        //TODO: définir fonctions des autres Manager ici
+        SignatureArray& getSignatureArray();
 
         template<typename T>
         T& addComponent(Entity e, T& comp) {
@@ -90,18 +64,10 @@ class Manager {
             return systems->getSystem<T>();
         }
 
-        void update(float dt); /*{
-            std::cout << "9\n";
-            systems.update();
-        }*/
+        void update(float dt);
 
     private:
-        Manager(); /*{
-            std::cout << "8\n";
-            for(Entity e = 0 ; e < MAX_ENTITIES ; e++) {
-                entities.push(e);
-            }
-        }*/
+        Manager();
 
         std::queue<Entity> entities;
         Entity entitiesAlive{0};

@@ -1,7 +1,7 @@
 /**
  * @file CameraSystem.h
  * @author Ethan MARLOT (ethan.marlot@hotmail.com)
- * @brief 
+ * @brief Update the camera position
  * @version 1.0
  * @date 2022-04-06
  * 

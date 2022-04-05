@@ -1,7 +1,7 @@
 /**
  * @file main.cpp
  * @author Ethan MARLOT (ethan.marlot@hotmail.com)
- * @brief 
+ * @brief Main game loop
  * @version 1.0
  * @date 2022-04-06
  * 

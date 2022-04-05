@@ -1,3 +1,11 @@
+/**
+ * @file PhysicSystem.h
+ * @author Ethan MARLOT (ethan.marlot@hotmail.com)
+ * @brief Resolve forces and update the velocity of the Entities (the position's update is made in CollisionSystem)
+ * @version 1.0
+ * @date 2022-04-06
+ * 
+ */
 #pragma once
 
 #include "ECS.h"
