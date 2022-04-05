@@ -4,7 +4,7 @@ INCFLAGS = -Iinclude -Iinclude/TinyXML -Iinclude/SDL2 -IECS/include -IEngine/inc
 
 all: clean bin/Game launch
 
-+#execution du jeu (facultatif)
+#execution du jeu (facultatif)
 launch:
 	bin/Game.exe
 

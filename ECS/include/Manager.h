@@ -10,8 +10,6 @@
 #pragma once
 
 #include "ECS.h"
-#include "GameMap.h"
-#include "MapParser.h"
 #include "SystemManager.h"
 #include "ComponentManager.h"
 
