@@ -1,3 +1,18 @@
 \babel@toc {french}{}\relax 
-\contentsline {chapter}{\numberline {1}Introduction}{2}{}%
-\contentsline {chapter}{\numberline {2}Analyse des besoins du projet}{3}{}%
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Analyse des besoins du projet}{3}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Moyens utilis\'es pour la conception du jeu}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Pour le d\'eveloppement du jeu}{5}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Langage C++}{5}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Biblioth\`eque graphique SDL2}{5}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Biblioth\`eque d'analyse syntaxique TinyXML}{5}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Pour les ressources graphiques}{6}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Itch.io}{6}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Logiciel Tiled Map Editor}{6}{subsection.3.2.2}%
+\contentsline {chapter}{\numberline {4}Analyse des solutions apport\'ees}{7}{chapter.4}%
+\contentsline {section}{\numberline {4.1}\'Evaluation du temps pr\'evu et du temps r\'eel utilis\'e pour concevoir le projet}{7}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Analyse et conception de l'ECS}{8}{section.4.2}%
+\contentsline {section}{\numberline {4.3}Analyse des composants}{10}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Analyse des syst\`emes}{13}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Conclusion}{15}{chapter.5}%
+\contentsline {chapter}{Bibliographie}{16}{chapter*.2}%

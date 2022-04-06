@@ -18,9 +18,11 @@ class ComponentArray : public IComponentArray {
         T& addComponent(Entity e, T& comp) {
             if(!(e < MAX_ENTITIES)) {
                 std::cout << "Out of range." << std::endl;
+                return comp;
             }
             if(compArray[e] != T{}) {
                 std::cout << "Component already added" << std::endl;
+                return comp;
             }
 
             compArray[e] = comp;
@@ -31,9 +33,11 @@ class ComponentArray : public IComponentArray {
         T& createComponent(Entity e, Args&&... args) {
             if(!(e < MAX_ENTITIES)) {
                 std::cout << "Out of range." << std::endl;
+                return T{e, args...};
             }
             if(compArray[e] != T{}) {
                 std::cout << "Component already added" << std::endl;
+                return T{e, args...};
             }
 
             T c{e,args...}; 
@@ -42,12 +46,18 @@ class ComponentArray : public IComponentArray {
         }
 
         void removeComponent(Entity e) {
+            if(!(e < MAX_ENTITIES)) {
+                std::cout << "Out of range." << std::endl;
+                return;
+            }
+
             compArray[e] = T{};
         }
 
         T& componentByID(Entity e) {
             if(!(e < MAX_ENTITIES)) {
                 std::cout << "Out of range." << std::endl;
+                return T{};
             }
 
             return compArray[e];

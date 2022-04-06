@@ -85,13 +85,12 @@ struct InputSystem : public ISystem {
                     r.jumping = true;
                     r.onGround = false;
                     r.force.y = r.jumpForce * D_UP;
-                    //TO DO: change animation -> enum dans rigidbody ou transform (transform plutot, voir même animation)
+                    //TODO: change animation -> enum dans rigidbody ou transform (transform plutot, voir même animation)
                 }
                 if(isKeyPressed(in, SDLK_z) && r.jumping && r.jumpTime > 0) {
                     r.jumpTime -= dt;
                     r.force.y = r.jumpForce * D_UP;
-                }
-                else {
+                } else {
                     r.jumping = false;
                     r.jumpTime = JUMP_TIME;
                 }
