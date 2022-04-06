@@ -1,0 +1,362 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 21.12) (preloaded format=pdflatex 2021.12.7)  6 APR 2022 03:44
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**./Rapport.tex
+(Rapport.tex
+LaTeX2e <2021-11-15>
+L3 programming layer <2021-11-22> (C:\MiKTeX\tex/latex/base\report.cls
+Document Class: report 2021/10/04 v1.4n Standard LaTeX document class
+(C:\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count183
+\c@chapter=\count184
+\c@section=\count185
+\c@subsection=\count186
+\c@subsubsection=\count187
+\c@paragraph=\count188
+\c@subparagraph=\count189
+\c@figure=\count190
+\c@table=\count191
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (C:\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks16
+\inpenc@posthook=\toks17
+)
+(C:\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(C:\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks18
+)
+(C:\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (C:\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count192
+\Gm@cntv=\count193
+\c@Gm@tempcnt=\count194
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
+\Gm@dimlist=\toks19
+ (C:\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\MiKTeX\tex/generic/babel\babel.sty
+Package: babel 2021/11/29 3.67 The Babel package
+\babel@savecnt=\count195
+\U@D=\dimen147
+\l@unhyphenated=\language79
+
+(C:\MiKTeX\tex/generic/babel\txtbabel.def)
+\bbl@readstream=\read2
+\bbl@dirlevel=\count196
+
+*************************************
+* Local config file bblopts.cfg used
+*
+(C:\MiKTeX\tex/latex/arabi\bblopts.cfg
+File: bblopts.cfg 2005/09/08 v0.1 add Arabic and Farsi to "declared" options of
+ babel
+)
+(C:\MiKTeX\tex/generic/babel-french\french.ldf
+Language: french 2021/07/20 v3.5m French support from the babel system
+Package babel Info: Hyphen rules for 'acadian' set to \l@french
+(babel)             (\language22). Reported on input line 91.
+Package babel Info: Hyphen rules for 'canadien' set to \l@french
+(babel)             (\language22). Reported on input line 92.
+\FB@nonchar=\count197
+Package babel Info: Making : an active character on input line 430.
+Package babel Info: Making ; an active character on input line 431.
+Package babel Info: Making ! an active character on input line 432.
+Package babel Info: Making ? an active character on input line 433.
+\FBguill@level=\count198
+\FBold@everypar=\toks20
+\FB@Mht=\dimen148
+\mc@charclass=\count199
+\mc@charfam=\count266
+\mc@charslot=\count267
+\std@mcc=\count268
+\dec@mcc=\count269
+\listindentFB=\dimen149
+\descindentFB=\dimen150
+\labelindentFB=\dimen151
+\labelwidthFB=\dimen152
+\leftmarginFB=\dimen153
+\parindentFFN=\dimen154
+\FBfnindent=\dimen155
+))
+(C:\MiKTeX\tex/latex/carlisle\scalefnt.sty)
+(C:\MiKTeX\tex/latex/libertine\libertine.sty
+Package: libertine 2020/03/26 (Bob Tennent) Supports Libertine and Biolinum fon
+ts for all LaTeX engines.
+
+(C:\MiKTeX\tex/generic/iftex\ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+(C:\MiKTeX\tex/generic/iftex\ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+(C:\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+
+(C:\MiKTeX\tex/generic/xkeyval\xkeyval.tex
+(C:\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks21
+\XKV@tempa@toks=\toks22
+)
+\XKV@depth=\count270
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+(C:\MiKTeX\tex/latex/base\textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) (C:\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+)
+(C:\MiKTeX\tex/latex/fontaxes\fontaxes.sty
+Package: fontaxes 2020/07/21 v1.0e Font selection axes
+LaTeX Info: Redefining \upshape on input line 29.
+LaTeX Info: Redefining \itshape on input line 31.
+LaTeX Info: Redefining \slshape on input line 33.
+LaTeX Info: Redefining \swshape on input line 35.
+LaTeX Info: Redefining \scshape on input line 37.
+LaTeX Info: Redefining \sscshape on input line 39.
+LaTeX Info: Redefining \ulcshape on input line 41.
+LaTeX Info: Redefining \textsw on input line 47.
+LaTeX Info: Redefining \textssc on input line 48.
+LaTeX Info: Redefining \textulc on input line 49.
+)
+LaTeX Info: Redefining \oldstylenums on input line 484.
+
+(C:\MiKTeX\tex/latex/libertine\LinLibertine_I.tex))
+(C:\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+)
+(C:\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(C:\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen156
+\Gin@req@width=\dimen157
+)
+(C:\MiKTeX\tex/latex/lipsum\lipsum.sty
+(C:\MiKTeX\tex/latex/l3packages/l3keys2e\l3keys2e.sty
+(C:\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2021-11-22 L3 programming layer (loader) 
+
+(C:\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
+File: l3backend-pdftex.def 2021-10-18 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count271
+\l__pdf_internal_box=\box50
+))
+Package: l3keys2e 2021-11-12 LaTeX2e option processing using LaTeX3 keys
+)
+Package: lipsum 2021-09-20 v2.7 150 paragraphs of Lorem Ipsum dummy text
+\g__lipsum_par_int=\count272
+\l__lipsum_a_int=\count273
+\l__lipsum_b_int=\count274
+
+(C:\MiKTeX\tex/latex/lipsum\lipsum.ltd.tex))
+LaTeX Font Info:    Trying to load font information for T1+LinuxLibertineT-TLF 
+on input line 15.
+
+(C:\MiKTeX\tex/latex/libertine\t1linuxlibertinet-tlf.fd
+File: T1LinuxLibertineT-TLF.fd 2017/03/20 (autoinst) Font definitions for T1/Li
+nuxLibertineT-TLF.
+)
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 12.0pt on input line 15.
+ (Rapport.aux)
+\openout1 = `Rapport.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(56.9055pt, 483.69687pt, 56.9055pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23584pt, 56.9055pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=483.69687pt
+* \textheight=731.23584pt
+* \oddsidemargin=-15.36449pt
+* \evensidemargin=-15.36449pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+LaTeX Info: Redefining \degres on input line 15.
+LaTeX Info: Redefining \up on input line 15.
+\c@mv@tabular=\count275
+\c@mv@boldtabular=\count276
+(C:\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count277
+\scratchdimen=\dimen158
+\scratchbox=\box51
+\nofMPsegments=\count278
+\nofMParguments=\count279
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count280
+\MPscratchDim=\dimen159
+\MPnumerator=\count281
+\makeMPintoPDFobject=\count282
+\everyMPtoPDFconversion=\toks24
+) (C:\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\MiKTeX\tex/latex/00miktex\epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
+(Font)              scaled to size 12.0pt on input line 25.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
+(Font)              scaled to size 20.74pt on input line 25.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
+(Font)              scaled to size 17.28pt on input line 28.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 24.88pt on input line 32.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 24.88pt on input line 32.
+<uphf.png, id=1, 401.5pt x 162.6075pt>
+File: uphf.png Graphic file (type png)
+<use uphf.png>
+Package pdftex.def Info: uphf.png  used on input line 35.
+(pdftex.def)             Requested size: 321.20042pt x 130.08617pt.
+<insa.JPG, id=3, 390.45876pt x 144.54pt>
+File: insa.JPG Graphic file (type jpg)
+<use insa.JPG>
+Package pdftex.def Info: insa.JPG  used on input line 37.
+(pdftex.def)             Requested size: 390.4578pt x 144.53963pt.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 14.4pt on input line 57.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
+(Font)              scaled to size 14.4pt on input line 57.
+ [1
+
+{C:/Users/ethan/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map} <./uphf.png> 
+<./insa.JPG>] (Rapport.toc
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 2.
+)
+\tf@toc=\write3
+\openout3 = `Rapport.toc'.
+
+
+[1
+
+]
+Chapitre 1.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/it' will be
+(Font)              scaled to size 12.0pt on input line 66.
+<etatJeuActuel.png, id=15, 965.85844pt x 567.62062pt>
+File: etatJeuActuel.png Graphic file (type png)
+<use etatJeuActuel.png>
+Package pdftex.def Info: etatJeuActuel.png  used on input line 71.
+(pdftex.def)             Requested size: 482.92804pt x 283.8096pt.
+[2
+
+ <./etatJeuActuel.png>]
+Chapitre 2.
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+
+ []
+
+<illustrationOO.png, id=21, 303.38344pt x 286.82156pt>
+File: illustrationOO.png Graphic file (type png)
+<use illustrationOO.png>
+Package pdftex.def Info: illustrationOO.png  used on input line 86.
+(pdftex.def)             Requested size: 303.38269pt x 286.82085pt.
+[3
+
+ <./illustrationOO.png>]
+<illustrationOD.png, id=26, 602.25pt x 451.6875pt>
+File: illustrationOD.png Graphic file (type png)
+<use illustrationOD.png>
+Package pdftex.def Info: illustrationOD.png  used on input line 94.
+(pdftex.def)             Requested size: 421.57211pt x 316.17908pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 89--97
+
+ []
+
+[4 <./illustrationOD.png>] (Rapport.aux) ) 
+Here is how much of TeX's memory you used:
+ 5516 strings out of 478659
+ 97776 string characters out of 2862405
+ 489856 words of memory out of 3000000
+ 23557 multiletter control sequences out of 15000+600000
+ 452306 words of font info for 47 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 68i,8n,77p,534b,426s stack positions out of 5000i,500n,10000p,200000b,80000s
+{C:/MiKTeX/fonts/enc/dvips/libertine/
+lbtn_7grukw.enc}{C:/MiKTeX/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}{C:/MiKTeX
+/fonts/enc/dvips/libertine/lbtn_nh77jq.enc}{C:/MiKTeX/fonts/enc/dvips/libertine
+/lbtn_ncsllp.enc}<C:/MiKTeX/fonts/type1/public/libertine/LinLibertineT.pfb><C:/
+MiKTeX/fonts/type1/public/libertine/LinLibertineTB.pfb><C:/MiKTeX/fonts/type1/p
+ublic/libertine/LinLibertineTI.pfb>
+Output written on Rapport.pdf (5 pages, 359548 bytes).
+PDF statistics:
+ 49 PDF objects out of 1000 (max. 8388607)
+ 0 named destinations out of 1000 (max. 500000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+

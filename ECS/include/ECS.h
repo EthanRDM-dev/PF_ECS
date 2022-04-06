@@ -60,7 +60,6 @@ struct IComponent {
  */
 class IComponentArray {
     public:
-        virtual ~IComponentArray() = default;
         virtual void entityDestroyed(Entity e) = 0;
 };
 

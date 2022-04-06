@@ -15,8 +15,10 @@ Manager::Manager() : components(std::make_unique<ComponentManager>()), systems(s
 }
 
 Entity Manager::createEntity() {
-    assert(entitiesAlive < MAX_ENTITIES &&
-     "Too many entities.");
+    if(!(entitiesAlive < MAX_ENTITIES)) {
+        std::cout << "Too many puppies." << std::endl;
+        return -1;
+    }
 
     Entity id = entities.front();
     entities.pop();
@@ -26,8 +28,10 @@ Entity Manager::createEntity() {
 }
 
 void Manager::destroyEntity(Entity e) {
-    assert(e < MAX_ENTITIES &&
-     "Out of range.");
+    if(!(e < MAX_ENTITIES)) {
+        std::cout << "Out of range." << std::endl;
+        return;
+    }
 
     entitySignatures[e].reset();
 
@@ -36,16 +40,20 @@ void Manager::destroyEntity(Entity e) {
 }
 
 void Manager::setSignature(Entity e, Signature s) {
-    assert(e < MAX_ENTITIES &&
-     "Entity out of range.");
-
+    if(!(e < MAX_ENTITIES)) {
+        std::cout << "Out of range." << std::endl;
+        return;
+    }
+            
     entitySignatures[e] = s;
 }
 
 Signature& Manager::getSignature(Entity e) {
-    assert(e < MAX_ENTITIES &&
-     "Entity out of range.");
-
+    if(!(e < MAX_ENTITIES)) {
+        std::cout << "Out of range." << std::endl;
+        return;
+    }
+ 
     return entitySignatures[e];
 }
 

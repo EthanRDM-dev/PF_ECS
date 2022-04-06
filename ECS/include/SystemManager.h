@@ -25,8 +25,10 @@ class SystemManager {
         void registerSystem() {
             static_assert(std::is_base_of<ISystem, T>::value, "Type not based on systems");
             
-            assert(systemsArray[getSystemID<T>()] == nullptr &&
-             "System of this type already registered.");
+            if(systemsArray[getSystemID<T>()] != nullptr) {
+                std::cout << "System of this type already registered." << std::endl;
+                return;
+            }
 
             systemsArray[getSystemID<T>()] = std::make_shared<T>();
             registeredSystem++;
@@ -42,8 +44,10 @@ class SystemManager {
         std::shared_ptr<T> getSystem() {
             static_assert(std::is_base_of<ISystem, T>::value, "Type not based on systems");
 
-            assert(systemsArray[getSystemID<T>()] != nullptr &&
-             "System of this type not registered.");
+            if(systemsArray[getSystemID<T>()] == nullptr) {
+                std::cout << "System of this type not registered." << std::endl;
+                return;
+            }
 
             return std::static_pointer_cast<T>(systemsArray[getSystemID<T>()]);
         }

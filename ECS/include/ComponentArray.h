@@ -16,11 +16,12 @@ class ComponentArray : public IComponentArray {
         ComponentArray() {}
 
         T& addComponent(Entity e, T& comp) {
-            assert(e < MAX_ENTITIES &&
-             "Out of range.");
-            
-            assert(compArray[e] == T{} &&
-             "Component already added");
+            if(!(e < MAX_ENTITIES)) {
+                std::cout << "Out of range." << std::endl;
+            }
+            if(compArray[e] != T{}) {
+                std::cout << "Component already added" << std::endl;
+            }
 
             compArray[e] = comp;
             return compArray[e];
@@ -28,11 +29,12 @@ class ComponentArray : public IComponentArray {
 
         template<typename... Args>
         T& createComponent(Entity e, Args&&... args) {
-            assert(e < MAX_ENTITIES &&
-             "Out of range.");
-
-            assert(compArray[e] != T{} &&
-             "Component already added");
+            if(!(e < MAX_ENTITIES)) {
+                std::cout << "Out of range." << std::endl;
+            }
+            if(compArray[e] != T{}) {
+                std::cout << "Component already added" << std::endl;
+            }
 
             T c{e,args...}; 
             compArray[e] = c;
@@ -44,8 +46,9 @@ class ComponentArray : public IComponentArray {
         }
 
         T& componentByID(Entity e) {
-            assert(e < MAX_ENTITIES &&
-             "Out of range.");
+            if(!(e < MAX_ENTITIES)) {
+                std::cout << "Out of range." << std::endl;
+            }
 
             return compArray[e];
         }

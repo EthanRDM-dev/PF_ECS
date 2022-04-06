@@ -25,8 +25,10 @@ class ComponentManager {
         std::shared_ptr<ComponentArray<T>> registerComponentArray() {
             static_assert(std::is_base_of<IComponent<T>, T>::value, "Type not based on components");
 
-            assert(componentArrays[getComponentTypeID<T>()] == nullptr &&
-             "ComponentArray for this type already registered.");
+            if(componentArrays[getComponentTypeID<T>()] != nullptr) {
+                std::cout << "ComponentArray for this type already registered." << std::endl;
+                return nullptr;
+            }
 
             componentArrays[getComponentTypeID<T>()] = std::make_shared<ComponentArray<T>>();
             return getComponentArray<T>();
@@ -51,8 +53,10 @@ class ComponentManager {
         std::shared_ptr<ComponentArray<T>> getComponentArray() {
             static_assert(std::is_base_of<IComponent<T>, T>::value, "Type not based on components");
             
-            assert(componentArrays[getComponentTypeID<T>()] != nullptr &&
-             "ComponentArray for this type not registered.");
+            if(componentArrays[getComponentTypeID<T>()] == nullptr) {
+                std::cout << "ComponentArray for this type not registered." << std::endl;
+                return nullptr;
+            }
 
             return std::static_pointer_cast<ComponentArray<T>>(componentArrays[getComponentTypeID<T>()]);
         }
